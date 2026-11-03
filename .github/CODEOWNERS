@@ -1,0 +1,5 @@
+# Esteban must review every change.
+* @esgonzal
+
+# Protect repository workflow and ownership rules.
+/.github/ @esgonzal
