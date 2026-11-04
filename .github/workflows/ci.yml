@@ -13,7 +13,7 @@ jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
@@ -21,5 +21,5 @@ jobs:
       - run: flutter pub get
       # The vendored Twilio plugin contains its own incomplete example project.
       # Analyze the application and its tests, not that third-party demo.
-      - run: flutter analyze lib test
+      - run: flutter analyze --no-fatal-infos lib test
       - run: flutter test

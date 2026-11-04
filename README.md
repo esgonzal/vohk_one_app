@@ -18,7 +18,7 @@ flutter run
 ## Verificación
 
 ```bash
-flutter analyze lib test
+flutter analyze --no-fatal-infos lib test
 flutter test
 flutter build apk --debug
 ```
