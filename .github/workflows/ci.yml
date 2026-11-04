@@ -1,0 +1,25 @@
+name: Flutter CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      # The vendored Twilio plugin contains its own incomplete example project.
+      # Analyze the application and its tests, not that third-party demo.
+      - run: flutter analyze lib test
+      - run: flutter test
